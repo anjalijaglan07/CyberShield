@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>File Hashing (SHA-256)</h2>
+  <div class="form-section">
+    <form method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="file">Upload File</label>
+        <input type="file" class="form-control-file" id="file" name="file" required>
+        <small class="form-text text-muted">We compute SHA‑256 and query VirusTotal.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Generate Hash</button>
+    </form>
+  </div>
+
+  {% if summary %}
+    <hr>
+    <div class="result-card">
+      <div class="result-header">
+        <h4 class="result-title">Result: {{ summary }}</h4>
+        <span class="status-badge status-safe">Hash Generated</span>
+      </div>
+    </div>
+    <button id="toggleBtn3" class="btn btn-secondary" onclick="toggleDetailed('detailedReport3', 'toggleBtn3')">Show Detailed Report</button>
+    <div id="detailedReport3" style="display: none;">
+      <pre>{{ detailed | tojson(indent=2) }}</pre>
+    </div>
+  {% endif %}
+{% endblock %}

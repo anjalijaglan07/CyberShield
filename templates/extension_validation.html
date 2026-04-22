@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Extension Validation</h2>
+  <div class="form-section">
+    <form method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="file_ext">Upload File</label>
+        <input type="file" class="form-control-file" id="file_ext" name="file_ext" required>
+        <small class="form-text text-muted">Detect mismatched extensions that hide real file types.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Validate Extension</button>
+    </form>
+  </div>
+
+  {% if summary %}
+    <hr>
+    <div class="result-card">
+      <div class="result-header">
+        <h4 class="result-title">Result: {{ summary }}</h4>
+        {% if summary == "Extension is valid" %}
+          <span class="status-badge status-safe">Valid</span>
+        {% elif summary == "Extension unknown" %}
+          <span class="status-badge status-warning">Unknown</span>
+        {% else %}
+          <span class="status-badge status-danger">Mismatch</span>
+        {% endif %}
+      </div>
+    </div>
+    <button id="toggleBtn4" class="btn btn-secondary" onclick="toggleDetailed('detailedReport4', 'toggleBtn4')">Show Detailed Report</button>
+    <div id="detailedReport4" style="display: none;">
+      <pre>{{ detailed | tojson(indent=2) }}</pre>
+    </div>
+  {% endif %}
+{% endblock %}

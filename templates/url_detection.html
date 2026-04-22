@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>URL Detection</h2>
+  <div class="form-section">
+    <form method="post">
+      <div class="form-group">
+        <label for="url">Enter URL</label>
+        <input type="text" class="form-control" id="url" name="url" placeholder="https://example.com" required>
+        <small class="form-text text-muted">We check URL reputation via VirusTotal.</small>
+      </div>
+      <button type="submit" class="btn btn-primary">Check URL</button>
+    </form>
+  </div>
+
+  {% if summary %}
+    <hr>
+    <div class="result-card">
+      <div class="result-header">
+        <h4 class="result-title">Result: {{ summary }}</h4>
+        {% if summary == "URL is safe" %}
+          <span class="status-badge status-safe">Safe</span>
+        {% elif summary == "URL is not safe" %}
+          <span class="status-badge status-danger">Risk</span>
+        {% elif summary == "URL scan pending" %}
+          <span class="status-badge status-warning">Pending</span>
+        {% elif summary == "URL scan error" %}
+          <span class="status-badge status-danger">Error</span>
+        {% else %}
+          <span class="status-badge status-warning">Unknown</span>
+        {% endif %}
+      </div>
+    </div>
+    <button id="toggleBtn2" class="btn btn-secondary" onclick="toggleDetailed('detailedReport2', 'toggleBtn2')">Show Detailed Report</button>
+    <div id="detailedReport2" style="display: none;">
+      <pre>{{ detailed | tojson(indent=2) }}</pre>
+    </div>
+  {% endif %}
+{% endblock %}

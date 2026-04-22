@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ADVANCED AI-POWERED MALWARE DETECTION SYSTEM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-cyber">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('index') }}">
+        <span class="brand-mark">CS</span>
+        CyberShied
+      </a>
+    </div>
+  </nav>
+  <main class="page">
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <div class="footer-title">CyberShied Tool Suite</div>
+        <div class="footer-sub">AI-powered malware, URL, hash, and extension analysis.</div>
+      </div>
+      <div class="footer-note">Educational use only. Do not use in production.</div>
+    </div>
+  </footer>
+  <script>
+    function toggleDetailed(id, btnId) {
+      var x = document.getElementById(id);
+      var btn = document.getElementById(btnId);
+      if (x.style.display === "none") {
+          x.style.display = "block";
+          btn.innerText = "Hide Detailed Report";
+      } else {
+          x.style.display = "none";
+          btn.innerText = "Show Detailed Report";
+      }
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
