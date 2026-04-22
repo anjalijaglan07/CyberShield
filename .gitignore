@@ -1,0 +1,15 @@
+.env
+.venv/
+myenv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local malware samples and generated scratch files.
+virus/
+artifacts/*.joblib
+
+# OS/editor noise.
+.DS_Store
+.vscode/
+.idea/
