@@ -1,0 +1,11 @@
+{
+  "features": [
+    "AddressOfEntryPoint",
+    "MajorLinkerVersion",
+    "MajorImageVersion",
+    "MajorOperatingSystemVersion",
+    "DllCharacteristics",
+    "SizeOfStackReserve",
+    "NumberOfSections"
+  ]
+}
